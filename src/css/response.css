@@ -1,0 +1,13 @@
+@media(max-width: 750px){
+    body{
+        background-position: center;
+    }
+    .slider{
+        gap: 0; 
+    }
+
+    .slider .btn-seta{
+        align-self: flex-end;
+        margin: -115px;
+    }
+}
