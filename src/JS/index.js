@@ -4,7 +4,7 @@ const cartoes = document.querySelectorAll(".cartao")
 
 let cartaoAtual = 0
 
-botaoAvancar.addEventListener("click", function () {
+botaoAvancar.addEventListener("click", () => {
     if (cartaoAtual >= cartoes.length -1) {
         cartaoAtual = -1
     }
@@ -15,7 +15,7 @@ botaoAvancar.addEventListener("click", function () {
     mostrarCartao(cartaoAtual);
 });
 
-botaoVoltar.addEventListener("click", function () {
+botaoVoltar.addEventListener("click", () => {
     if (cartaoAtual === 0) {
         cartaoAtual = 7
     }
