@@ -8,8 +8,6 @@ botaoAvancar.addEventListener("click", function () {
     if (cartaoAtual >= cartoes.length -1) {
         cartaoAtual = -1
     }
-    console.log(cartaoAtual);
-
 
     esconderCartaoSelecionado();
 
@@ -18,10 +16,9 @@ botaoAvancar.addEventListener("click", function () {
 });
 
 botaoVoltar.addEventListener("click", function () {
-    if (cartaoAtual >= 0) {
+    if (cartaoAtual === 0) {
         cartaoAtual = 7
     }
-        
 
     esconderCartaoSelecionado();
 
