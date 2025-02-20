@@ -1,19 +1,19 @@
-const botaoAvancar = document.getElementById("btn-avancar")
-const botaoVoltar = document.getElementById("btn-voltar")
-const cartoes = document.querySelectorAll(".cartao")
-let cartaoAtual = 0
+const botaoAvancar = document.getElementById("btn-avancar");
+const botaoVoltar = document.getElementById("btn-voltar");
+const cartoes = document.querySelectorAll(".cartao");
+let cartaoAtual = 0;
 
 cartoes.forEach(cartao => {
     cartao.addEventListener('click', () => {
 
-        virarEMostrarFundoCarta(cartao)
-        esconderDescricaoCartao(cartao)
+        virarEMostrarFundoCarta(cartao);
+        esconderDescricaoCartao(cartao);
     })
 })
 
 botaoAvancar.addEventListener("click", () => {
     if (cartaoAtual >= cartoes.length - 1) {
-        cartaoAtual = -1
+        cartaoAtual = -1;
     }
 
     esconderCartaoSelecionado();
@@ -23,7 +23,7 @@ botaoAvancar.addEventListener("click", () => {
 
 botaoVoltar.addEventListener("click", () => {
     if (cartaoAtual === 0) {
-        cartaoAtual = 7
+        cartaoAtual = 7;
     }
 
 
@@ -33,13 +33,13 @@ botaoVoltar.addEventListener("click", () => {
 });
 
 function virarEMostrarFundoCarta(cartao) {
-    const cartaVirada = cartao.querySelector('.carta-virada')
-    cartao.classList.toggle("virar")
-    cartaVirada.classList.toggle('mostrar-fundo-carta')
+    const cartaVirada = cartao.querySelector('.carta-virada');
+    cartao.classList.toggle("virar");
+    cartaVirada.classList.toggle('mostrar-fundo-carta');
 }
 
 function esconderDescricaoCartao(cartao) {
-    const descricao = cartao.querySelector('.descricao')
+    const descricao = cartao.querySelector('.descricao');
 
     if (descricao) {
         descricao.classList.remove('escoder');
