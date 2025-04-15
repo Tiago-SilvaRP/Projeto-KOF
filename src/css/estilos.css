@@ -178,9 +178,11 @@ body::-webkit-scrollbar-track{
 ::-webkit-scrollbar-thumb:hover {
     background: #c08057;
 }
+/* esconde o fundo da carta por padrão */
 .carta-virada{
 	display: none;
 }
+/*mostra o fundo da carta quando virada*/
 .carta-virada.mostrar-fundo-carta{
 	display: block;
 	height: 100%;

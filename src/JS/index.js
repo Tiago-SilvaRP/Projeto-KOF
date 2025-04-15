@@ -7,42 +7,48 @@ cartoes.forEach(cartao => {
     cartao.addEventListener('click', () => {
 
         virarEMostrarFundoCarta(cartao);
-        esconderDescricaoCartao(cartao);
     })
 })
 
 botaoAvancar.addEventListener("click", () => {
-    if (cartaoAtual >= cartoes.length - 1) {
-        cartaoAtual = -1;
-    }
 
+    proximoCartao();
     esconderCartaoSelecionado();
-    cartaoAtual++;
     mostrarCartao(cartaoAtual);
+    verificarDescricao(cartoes[cartaoAtual]);
 });
 
 botaoVoltar.addEventListener("click", () => {
-    if (cartaoAtual === 0) {
-        cartaoAtual = 7;
-    }
 
-
+    cartaoAnterior();
     esconderCartaoSelecionado();
-    cartaoAtual--;
     mostrarCartao(cartaoAtual);
+    verificarDescricao(cartoes[cartaoAtual]);
 });
+
+function proximoCartao() {
+    cartaoAtual = (cartaoAtual + 1) % cartoes.length;
+}
+
+function cartaoAnterior() {
+    cartaoAtual = (cartaoAtual - 1 + cartoes.length) % cartoes.length;
+}
 
 function virarEMostrarFundoCarta(cartao) {
     const cartaVirada = cartao.querySelector('.carta-virada');
-    cartao.classList.toggle("virar");
-    cartaVirada.classList.toggle('mostrar-fundo-carta');
-}
-
-function esconderDescricaoCartao(cartao) {
     const descricao = cartao.querySelector('.descricao');
 
-    if (descricao) {
-        descricao.classList.remove('escoder');
+    cartao.classList.toggle("virar");
+    cartaVirada.classList.toggle('mostrar-fundo-carta');
+
+    if (cartao.classList.contains("virar")) {
+        if (descricao) {
+            descricao.classList.add('esconder');
+        }
+    } else {
+        if (descricao) {
+            descricao.classList.remove('esconder');
+        }
     }
 }
 
@@ -61,5 +67,13 @@ function esconderCartaoSelecionado() {
         if (fundoCarta) {
             fundoCarta.classList.remove("mostrar-fundo-carta");
         }
+    }
+}
+
+function verificarDescricao(cartao) {
+    const descricao = cartao.querySelector('.descricao');
+
+    if (!cartao.classList.contains("virar") && descricao) {
+        descricao.classList.remove('esconder');
     }
 }
